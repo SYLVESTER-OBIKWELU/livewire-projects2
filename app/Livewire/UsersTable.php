@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\User;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -10,11 +11,19 @@ class UsersTable extends Component
 {
     use WithPagination;
 
+    #[Url(history:true)]
     public $perPage = '5';
+    
+    #[Url(history:true)]
     public $search = '';
+
+    #[Url(history:true)]
     public $isAdmin = '';
 
+    #[Url(history:true)]
     public $sortBy = 'created_at';
+
+    #[Url(history:true)]
     public $sortDir = 'DESC';
     
     public function render()
@@ -36,7 +45,7 @@ class UsersTable extends Component
 
         $this->dispatch(
             'alert',
-            text:'User name with ID:'.$user->id.' has been deleted',
+            text:'User with ID:'.$user->id.' has been deleted',
             icon:'success'
         );
     }
@@ -49,5 +58,10 @@ class UsersTable extends Component
         
         $this->sortBy = $sortByField;
         $this->sortDir ='DESC';
+    }
+
+    //reset page to page?1 when making a search
+    public function updatedSearch(){
+        $this->resetPage();
     }
 }

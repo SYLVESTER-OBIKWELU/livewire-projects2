@@ -24,7 +24,7 @@
                     </div>
                     <div class="flex space-x-3">
                         <div class="flex space-x-3 items-center">
-                            <label class="w-40 text-sm font-medium text-gray-900">User Type :</label>
+                            <label class="w-40 text-sm font-medium text-white">User Type :</label>
                             <select wire:model.live='isAdmin'
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                 <option value="">All</option>
@@ -40,19 +40,24 @@
                         @include('layout.table-head')
 
                         <tbody>
-                            @foreach ($users as $user)
-                                <tr wire:key='{{$user->id}}' class="border-b dark:border-gray-700">
-                                    <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$user->name}}</th>
-                                    <td class="px-4 py-3">{{$user->email}}</td>
-                                    <td class="px-4 py-3 {{ $user->isAdmin ? 'text-green-500' : 'text-red-500'}}">{{ $user->isAdmin ? 'Admin' : 'User'}}</td>
-                                    <td class="px-4 py-3">{{$user->created_at->diffForHumans()}}</td>
-                                    <td class="px-4 py-3">{{$user->updated_at->diffForHumans()}}</td>
-                                    <td class="px-4 py-3 flex items-center justify-end">
-                                        <button class="px-3 py-1 bg-red-500 text-white rounded" onclick="deletion(event)"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                        <button wire:click='delete({{$user->id}})' id="deleteBtn"></button>
-                                    </td>
-                                </tr>
-                            @endforeach
+                            
+                            @if (count($users) != 0)
+                                @foreach ($users as $user)
+                                    <tr wire:key='{{$user->id}}' class="border-b dark:border-gray-700">
+                                        <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$user->name}}</th>
+                                        <td class="px-4 py-3">{{$user->email}}</td>
+                                        <td class="px-4 py-3 {{ $user->isAdmin ? 'text-green-500' : 'text-red-500'}}">{{ $user->isAdmin ? 'Admin' : 'User'}}</td>
+                                        <td class="px-4 py-3">{{$user->created_at->diffForHumans()}}</td>
+                                        <td class="px-4 py-3">{{$user->updated_at->diffForHumans()}}</td>
+                                        <td class="px-4 py-3 flex items-center justify-center">
+                                            <button class="px-3 py-1 bg-red-500 text-white rounded" onclick="deletion(event)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                            <button wire:click='delete({{$user->id}})' id="deleteBtn"></button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <h1 class="flex justify-center text-white  p-5 ">No Users available yet: please run '(url)/artisan-seed'</h1>
+                            @endif
 
                         </tbody>
                     </table>
@@ -61,7 +66,7 @@
                 <div class="py-4 px-3">
                     <div class="flex ">
                         <div class="flex space-x-4 items-center mb-3">
-                            <label class="w-32 text-sm font-medium text-gray-900">Per Page</label>
+                            <label class="w-32 text-sm font-medium text-white">Per Page</label>
                             <select wire:model.live='perPage'
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                 <option value="5">5</option>

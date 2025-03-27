@@ -38,8 +38,6 @@
         </th>
         <th scope="col" class="px-4 py-3">Joined</th>
         <th scope="col" class="px-4 py-3">Last update</th>
-        <th scope="col" class="px-4 py-3">
-            <span class="sr-only">Actions</span>
-        </th>
+        <th scope="col" class="px-4 py-3 flex justify-center">Actions</th>
     </tr>
 </thead>
