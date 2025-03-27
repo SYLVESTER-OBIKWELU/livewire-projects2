@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get("/artisan-seed", function () {
     Artisan::call("db:seed");
@@ -17,6 +17,6 @@ Route::get("/artisan-fresh", function () {
     return back();
 });
 
-Route::get('/contact', function () {
-    return view('contactUs');
-});
+Route::get('/page_2', function () {
+    return view('page_1');
+})->name('page2');

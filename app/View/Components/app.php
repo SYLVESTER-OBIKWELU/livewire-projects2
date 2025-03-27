@@ -21,6 +21,6 @@ class app extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.app');
+        return view('components.layout.app');
     }
 }
