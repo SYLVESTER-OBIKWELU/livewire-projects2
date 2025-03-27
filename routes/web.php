@@ -7,12 +7,12 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get("/artisan-seed", function () {
+Route::get("/db-seed", function () {
     Artisan::call("db:seed");
     return back();
 });
 
-Route::get("/artisan-fresh", function () {
+Route::get("/migrate-fresh", function () {
     Artisan::call("migrate:fresh");
     return back();
 });

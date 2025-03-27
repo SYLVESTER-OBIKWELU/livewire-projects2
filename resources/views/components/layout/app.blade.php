@@ -46,7 +46,7 @@
                 toast: true,
                 position: "top-end",
                 showConfirmButton: false,
-                timer: 3000,
+                timer: 4000,
                 timerProgressBar: true,
                 didOpen: (toast) => {
                     toast.onmouseenter = Swal.stopTimer;
@@ -62,7 +62,7 @@
         function deletion(event){
             Swal.fire({
                 title: "Are you sure?",
-                text: "You won't be able to revert this action!",
+                text: "This action can not be reverted once complete!",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",

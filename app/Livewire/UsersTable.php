@@ -45,7 +45,7 @@ class UsersTable extends Component
 
         $this->dispatch(
             'alert',
-            text:'User with ID:'.$user->id.' has been deleted',
+            text:'User with Id:'.$user->id.' has been deleted',
             icon:'success'
         );
     }
