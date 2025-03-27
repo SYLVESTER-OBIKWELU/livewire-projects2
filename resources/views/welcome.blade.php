@@ -1,6 +1,5 @@
-{{-- <x-app>
+<x-layout.app>
     
     <livewire:users-table />
 
-</x-app> --}}
-hello
+</x-layout.app>
