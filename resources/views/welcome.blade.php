@@ -1,5 +1,5 @@
-<x-layout.app>
+<x-app>
     
     <livewire:users-table />
 
-</x-layout.app>
+</x-app>
